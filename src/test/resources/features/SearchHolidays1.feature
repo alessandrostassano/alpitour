@@ -1,4 +1,4 @@
-Feature: SearchHolidays
+Feature: SearchHolidays1
 
   #Step1
   Scenario: Log-in in AlpiTour and search a results for Sicily on the date 24 July

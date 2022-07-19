@@ -24,7 +24,11 @@ public class CommonSteps {
  * 103 di Chrome.
  * Per impostare funzionalità specifiche di chrome, utilizzo la class chrome driver. Desired Capabilities invece è una classe utilizzata
  * per dichiarare una serie di requisiti di base come combinazioni di browser, sistemi operativi, versioni di browser,
- * ad un'istanza di desired capabilities, applico il metodo */
+ * ad un'istanza di desired capabilities, applico il metodo setCapabilities. "setProperty method" ha invece due attributi –
+ * “propertyName” and “value.” The propertyName rappresenta il nome del driver del browser, e nel value il path del percorso
+ * per raggiungerlo
+ * Come variabile di classe ho messo la variabile comune "driver" oggetto della classe WebDriver e settata come statica
+ * in modo da condividere valori comuni tra gli oggetti di una classe.*/
 
     @When("I go to {string}")
     public static void iGoToEntryPage(String configParameter) {
@@ -75,7 +79,7 @@ public class CommonSteps {
             new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath("//label[@class='NewSearchBarComponent_labelList__nk0k-']//span[contains(text(),'MILANO MALPENSA')]/following-sibling::span//input[@class='custom-input']"))).click();
         }
         else if(airportChoosed.equals("BERGAMO")){
-            driver.findElement(By.xpath("//label[@class='NewSearchBarComponent_labelList__nk0k-']//span[contains(text(),'BERGAMO')]/following-sibling::span//input[@class='custom-input']")).click();
+            new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath("//label[@class='NewSearchBarComponent_labelList__nk0k-']//span[contains(text(),'BERGAMO')]/following-sibling::span//input[@class='custom-input']"))).click();
         }
         driver.findElement(By.xpath("//button[@class='MuiButtonBase-root MuiButton-root MuiButton-contained NewSearchBarComponent_footerButton__1vHTM false MuiButton-containedPrimary']")).click();
     }
