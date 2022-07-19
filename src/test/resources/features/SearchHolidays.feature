@@ -1,7 +1,7 @@
 Feature: SearchHolidays
 
   #Step1
-  Scenario: Log-in in AlpiTour and search a results for Sicily
+  Scenario: Log-in in AlpiTour and search a results for Sicily on the date 24 July
     When I go to "http://my.alpitourworld.com"
     And I fill "alestassa@gmail.com" as a username and "rtnpHLD8-" as a password
     And I click accediButton if is present
