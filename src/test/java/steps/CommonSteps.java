@@ -17,6 +17,15 @@ import static org.junit.Assert.assertTrue;
 
 public class CommonSteps {
  public static WebDriver driver;
+
+ /*Questo è il metodo che starebbe nella classe main di Java, in questo caso tramite il set property,
+ * come parametri setto quale deve essere il driver di connessione per il browser indicato, ovvero chrome
+ * e successivamente indicato il percorso nel quale si trova effettivamente il chrome driver per la versione
+ * 103 di Chrome.
+ * Per impostare funzionalità specifiche di chrome, utilizzo la class chrome driver. Desired Capabilities invece è una classe utilizzata
+ * per dichiarare una serie di requisiti di base come combinazioni di browser, sistemi operativi, versioni di browser,
+ * ad un'istanza di desired capabilities, applico il metodo */
+
     @When("I go to {string}")
     public static void iGoToEntryPage(String configParameter) {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Ale\\IdeaProjects\\SeleniumCucumber\\webdrivers\\chromedriver\\chromedriver.exe");
@@ -29,6 +38,7 @@ public class CommonSteps {
         driver.get(configParameter);
     }
 
+    /*Attraverso questo metodo, gherkin*/
     @And("I fill {string} as a username and {string} as a password")
     public static void iFillAsAUsernameAndAsAPassword(String username, String password) {
         driver.findElement(By.xpath("(//*[contains(@class,'input text-sm border-2')])[1]")).sendKeys(username);
@@ -77,7 +87,7 @@ public class CommonSteps {
 
     @And("I click 24 July and i go to the results page")
     public static void chooseTheDateAvailable(){
-        new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend NewSearchBarComponent_tileContent__1OJ8J']//abbr[contains(text(),'24')]"))).click();
+        new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='react-calendar__month-view__days']//child::button[@class='react-calendar__tile react-calendar__month-view__days__day react-calendar__month-view__days__day--weekend NewSearchBarComponent_tileContent__1OJ8J ']//abbr[contains(text(),'24')]"))).click();
         driver.findElement(By.xpath("//span[@class='MuiButton-label']//p[contains(text(),'vedi risultati')]")).click();
     }
 
